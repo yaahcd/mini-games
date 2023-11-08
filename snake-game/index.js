@@ -35,6 +35,16 @@ const gameOver = () => {
   context.fillText("Game Over", width / 2, height / 2);
 };
 
+const circle = function (x, y, radius, fillCircle) {
+  context.beginPath();
+  context.arc(x, y, radius, 0, Math.PI * 2, false);
+  if (fillCircle) {
+    context.fill();
+  } else {
+    context.stroke();
+  }
+};
+
 const Block = function (col, row) {
   this.col = col;
   this.row = row;
@@ -60,18 +70,17 @@ Block.prototype.checkPosition = function (otherBlock) {
 
 const Snake = function () {
   this.segments = [new Block(7, 5), new Block(6, 5), new Block(5, 5)];
-
   this.direction = "right";
   this.nextDirection = "right";
 };
 
-Snake.prototype.draw = () => {
+Snake.prototype.draw = function () {
   for (let i = 0; i < this.segments.length; i++) {
     this.segments[i].drawSquare("Blue");
   }
 };
 
-Snake.prototype.move = () => {
+Snake.prototype.move = function () {
   const head = this.segments[0];
   let newHead;
   this.direction = this.nextDirection;
@@ -93,7 +102,7 @@ Snake.prototype.move = () => {
 
   this.segments.unshift(newHead);
 
-  if (newHead.equal(apple.position)) {
+  if (newHead.checkPosition(apple.position)) {
     score++;
     apple.move();
   } else {
@@ -111,28 +120,14 @@ Snake.prototype.checkCollision = function (head) {
   const selfCollision = false;
 
   for (let i = 0; i < this.segments.length; i++) {
-    if (head.equal(this.segments[i])) {
+    if (head.checkPosition(this.segments[i])) {
       selfCollision = true;
     }
   }
   return wallCollision || selfCollision;
 };
 
-const directions = {
-  37: "left",
-  38: "up",
-  39: "right",
-  40: "down",
-};
-
-$("body").keydown(function (event) {
-  var newDirection = directions[event.keyCode];
-  if (newDirection !== undefined) {
-    Snake.setDirection(newDirection);
-  }
-});
-
-Snake.prototype.setDirection = (newDirection) => {
+Snake.prototype.setDirection = function (newDirection) {
   if (this.direction === "up" && newDirection === "down") {
     return;
   } else if (this.direction === "right" && newDirection === "left") {
@@ -145,4 +140,42 @@ Snake.prototype.setDirection = (newDirection) => {
   this.nextDirection = newDirection;
 };
 
+const Apple = function () {
+  this.position = new Block(10, 10);
+};
 
+Apple.prototype.draw = function () {
+  this.position.drawCircle("LimeGreen");
+};
+
+Apple.prototype.move = function () {
+  const randomCol = Math.floor(Math.random() * (widthInBlocks - 2)) + 1;
+  const randomRow = Math.floor(Math.random() * (heightInBlocks - 2)) + 1;
+  this.position = new Block(randomCol, randomRow);
+};
+
+const snake = new Snake();
+const apple = new Apple();
+
+const intervalId = setInterval(function () {
+  context.clearRect(0, 0, width, height);
+  drawScore();
+  snake.move();
+  snake.draw();
+  apple.draw();
+  drawBorder();
+}, 100);
+
+const directions = {
+  37: "left",
+  38: "up",
+  39: "right",
+  40: "down",
+};
+
+$("body").keydown(function (event) {
+  var newDirection = directions[event.keyCode];
+  if (newDirection !== undefined) {
+    snake.setDirection(newDirection);
+  }
+});
