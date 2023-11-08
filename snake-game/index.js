@@ -19,9 +19,42 @@ const drawBorder = () => {
 };
 
 const drawScore = () => {
-    ctx.font = "20px Courier";
-    ctx.fillStyle = "Black";
-    ctx.textAlign = "left";
-    ctx.textBaseline = "top";
-    ctx.fillText("Score: " + score, blockSize, blockSize);
-   };
+  context.font = "20px Courier";
+  context.fillStyle = "Black";
+  context.textAlign = "left";
+  context.textBaseline = "top";
+  context.fillText("Score: " + score, blockSize, blockSize);
+};
+
+const gameOver = () => {
+  clearInterval(intervalId);
+  context.font = "60px Courier";
+  context.fillStyle = "Black";
+  context.textAlign = "center";
+  context.textBaseline = "middle";
+  context.fillText("Game Over", width / 2, height / 2);
+};
+
+const Block = function (col, row) {
+  this.col = col;
+  this.row = row;
+};
+
+Block.prototype.drawSquare = function (color) {
+  const x = this.col * blockSize;
+  const y = this.row * blockSize;
+  context.fillStyle = color;
+  context.fillRect(x, y, blockSize, blockSize);
+};
+
+Block.prototype.drawCircle = function (color) {
+  const centerX = this.col * blockSize + blockSize / 2;
+  const centerY = this.row * blockSize + blockSize / 2;
+  context.fillStyle = color;
+  circle(centerX, centerY, blockSize / 2, true);
+};
+
+Block.prototype.checkPosition = function (otherBlock) {
+  return this.col === otherBlock.col && this.row === otherBlock.row;
+};
+
