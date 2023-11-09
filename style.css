@@ -1,53 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Roboto:wght@400;500;700;900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Roboto:wght@400;500;700;900&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
 body {
-    background-color: rgb(39, 80, 80);
+  background-color: rgb(39, 80, 80);
 }
 
 section {
-    position: relative;
+  position: relative;
 }
 
 h1 {
-    position: absolute;
-    font-family: 'Pixelify Sans', sans-serif;
-    font-size: 25px;
-    white-space: nowrap;
-    color: white;
-    text-shadow: 3px 1px 3px black;
+  position: absolute;
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 35px;
+  white-space: nowrap;
+  color: white;
+  text-shadow: 3px 1px 3px black;
 }
 
+#blob {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+  width: 200px;
+  height: 150px;
+  outline: 1px solid transparent;
+  background-color: #0ff;
+  border-radius: 45% 56% 72% 28% / 42% 42% 56% 48%;
+  animation: morph 3.75s linear infinite;
+  box-shadow: 10px 10px 40px 10px #0ff;
+}
 
-#blob { 
+.games-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 50px auto;
-    width: 150px;
-    height: 150px;
+    text-align: center;
+    margin: auto;
+}
+
+.games-container a {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-family:  "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 29px;
+    margin: 5px;
+    width: 70vw;
+    height: 90px;
+    border-radius: 10px;
     background-color: #0ff;
-    border-radius: 45% 56% 72% 28% / 42% 42% 56% 48%;
-    animation: morph 3.75s linear infinite;
-    box-shadow: 10px 10px 40px 15px #0ff;
+    color: white;
+    text-shadow: -1px 1px 2px black;
+}
+
+.games-container a:hover {
+    
 }
 
 @keyframes morph {
-    0%, 100% {
-        border-radius: 45% 56% 72% 28% / 42% 42% 56% 48%;
-    }
+  0%,
+  100% {
+    border-radius: 45% 56% 72% 28% / 42% 42% 56% 48%;
+  }
 
-    33% {
-       border-radius:72% 28% 48% 48% / 28% 28% 72% 72%;
-    }
+  33% {
+    border-radius: 72% 28% 48% 48% / 28% 28% 72% 72%;
+  }
 
-    66% {
-        border-radius: 100% 56% 56% 100% / 100% 100% 56% 56%;
-    }
+  66% {
+    border-radius: 100% 56% 56% 100% / 100% 100% 56% 56%;
+  }
 }
