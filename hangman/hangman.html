@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="index.js" type="module"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <title>Hangman</title>
-</head>
-<body>
-    <h3>Pick a theme </h3>
-    <div id="theme-container">
-        <div>fruits</div>
-        <div>animals</div>
-    </div>
-    
-    <div class="hang-container">
+  </head>
+  <body>
+    <h3>Press a letter to start guessing</h3>
+
+    <div class="game-container">
+      <div class="hang-container">
         <svg height="250" width="200" class="hang">
-         
           <line x1="60" y1="20" x2="140" y2="20" />
           <line x1="140" y1="20" x2="140" y2="50" />
           <line x1="60" y1="20" x2="60" y2="230" />
@@ -35,8 +31,17 @@
         </svg>
       </div>
 
-      <div class="secretWord-container"></div>
-
       <div class="wrongGuess-container"></div>
-</body>
+    </div>
+    <div class="secretWord-container"></div>
+
+    <div class="warning">You've already guessed that letter!</div>
+
+    <div class="popup-container">
+      <div class="popup">
+        <h2 id="warning"></h2>
+        <button id="play-again">Play again</button>
+      </div>
+    </div>
+  </body>
 </html>

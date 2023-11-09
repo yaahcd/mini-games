@@ -1,55 +1,111 @@
 @import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Roboto:wght@400;500;700;900&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family:  "Roboto", sans-serif;
-    background-color: rgb(80, 72, 39);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+  background-color: rgb(80, 72, 39);
 }
 
 h3 {
-    margin-top: 30px;
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.game-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    letter-spacing: 1px;
-}
+    justify-content: space-evenly;
+    width: 100%;
+  }
 
-#theme-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#theme-container div {
-    font-weight: 700;
-    font-size: 16px;
-    margin: 5px;
-    background-color: burlywood;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: .3s;
-}
-
-#theme-container div:hover { 
-    box-shadow: 1px 1px 5px 5px  burlywood;
-    opacity: 0.9;
-    color: white;
-}
+  .hang-container {
+    width: 100%;
+  }
 
 .hang {
-    fill: transparent;
-    stroke: #fff;
-    stroke-width: 4px;
-    stroke-linecap: round;
-  }
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 4px;
+  stroke-linecap: round;
   
-  .body {
-    display: none;
-  }
+}
+
+.body {
+  display: none;
+}
+
+.wrongGuess-container {
+    width: 100%;
+  font-size: 32px;
+  color: white;
+}
+
+.secretWord-container {
+  font-size: 45px;
+  color: white;
+  padding: 5px;
+}
+
+.warning {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px 10px 0 0;
+  padding: 15px 20px;
+  position: absolute;
+  bottom: -55px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.warning.show {
+  transform: translateY(-50px);
+}
+
+.popup-container {
+  background-color: rgba(0, 0, 0, 0.849);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  background-color: burlywood;
+  border-radius: 10px;
+  box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.popup button {
+  cursor: pointer;
+  background-color: #fff;
+  border: 0;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+  transform: 0.4s;
+  opacity: 0.9;
+}
+
+.popup button:hover {
+  opacity: 1;
+  font-weight: 700;
+}
