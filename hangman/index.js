@@ -89,17 +89,17 @@ const checkGameStatus = () => {
   let warning = "";
   const bodyParts = document.querySelectorAll(".body");
   const secretWordContainer = document.querySelector(".secretWord-container");
+
   if (wrongGuess.length === bodyParts.length) {
     warning = `You lost, the secret word was ${secretWord}`;
   }
- 
-  if(secretWordContainer.innerText){
-  if (secretWord === secretWordContainer.innerText.match(/[a-z]/g).join("")) {
-    console.log("here ");
-    warning = `Yay! You guessed the secret word: ${secretWord}`;
+
+  if (/[a-z]/g.test(secretWordContainer.innerText)) {
+    if (secretWord === secretWordContainer.innerText.match(/[a-z]/g).join("")) {
+      warning = `Yay! You guessed the secret word: ${secretWord}`;
+    }
   }
-}
-  console.log(warning);
+
   if (warning) {
     document.querySelector("#warning").innerHTML = warning;
     document.querySelector(".popup-container").style.display = "flex";
