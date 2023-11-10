@@ -23,9 +23,8 @@ const fruits = [
   "mango",
   "orange",
   "papaya",
-  "passion fruit",
   "peach",
-  "pears",
+  "pear",
   "pineapple",
   "plum",
   "pomegranate",
@@ -42,6 +41,8 @@ const secretWord = fruits[Math.floor(Math.random() * fruits.length)];
 document.addEventListener("keydown", (e) => {
   const keyCode = e.keyCode;
   if (isLetter(keyCode)) {
+    const startGameMessage = document.getElementById("game-start");
+    startGameMessage.style.display = "none";
     const letter = e.key;
 
     if (wrongGuess.includes(letter)) {
@@ -85,23 +86,25 @@ const showRightGuesses = () => {
 };
 
 const checkGameStatus = () => {
-  let warning = ""
+  let warning = "";
   const bodyParts = document.querySelectorAll(".body");
-  const secretWordContainer = document.querySelector(".secretWord-container")
-  if(wrongGuess.length === bodyParts.length){
-    warning = `You lost, the secret word was ${secretWord}`
-   
+  const secretWordContainer = document.querySelector(".secretWord-container");
+  if (wrongGuess.length === bodyParts.length) {
+    warning = `You lost, the secret word was ${secretWord}`;
   }
-
-  if(secretWord === secretWordContainer.innerText) {
-    warning = `Yay! You guessed the secret word: ${secretWord}`
+ 
+  if(secretWordContainer.innerText){
+  if (secretWord === secretWordContainer.innerText.match(/[a-z]/g).join("")) {
+    console.log("here ");
+    warning = `Yay! You guessed the secret word: ${secretWord}`;
   }
-
-  if(warning){
+}
+  console.log(warning);
+  if (warning) {
     document.querySelector("#warning").innerHTML = warning;
     document.querySelector(".popup-container").style.display = "flex";
   }
-}
+};
 
 const drawHangman = () => {
   const bodyParts = document.querySelectorAll(".body");
@@ -124,6 +127,6 @@ const isLetter = (keyCode) => {
 
 const restartGame = () => {
   window.location.reload();
-}
+};
 
-document.getElementById("play-again").addEventListener("click", restartGame)
+document.getElementById("play-again").addEventListener("click", restartGame);

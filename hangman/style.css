@@ -14,54 +14,76 @@ body {
   height: 100vh;
   overflow: hidden;
   font-family: "Roboto", sans-serif;
-  background-color: rgb(80, 72, 39);
+  background: url("./fruits.png") ;
+  background-size: cover;
+  background-color: rgb(43, 39, 25);
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: blanchedalmond;
+  letter-spacing: 1px;
+  margin: 30px;
 }
 
 h3 {
-  margin: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  letter-spacing: 1px;
+  font-size: 30px;
+  margin-bottom: 10px;
+  text-shadow: -1px 1px 3px black;
+}
+
+header p {
+  font-family: "Pixelify Sans", sans-serif;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 5px blanchedalmond;
+  animation: blink 2s linear infinite;
 }
 
 .game-container {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-  }
-
-  .hang-container {
-    width: 100%;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5px auto;
+  width: 60vw;
+}
 
 .hang {
   fill: transparent;
-  stroke: #fff;
+  stroke: blanchedalmond;
   stroke-width: 4px;
   stroke-linecap: round;
-  
+
+  animation: blink 0.2s linear;
 }
 
 .body {
   display: none;
+  animation: blink 0.1s linear;
 }
 
 .wrongGuess-container {
-    width: 100%;
+  justify-self: end;
+  width: 100%;
   font-size: 32px;
-  color: white;
+  color: red;
+  text-decoration: line-through;
+  animation: blink 0.2s linear;
 }
 
 .secretWord-container {
   font-size: 45px;
-  color: white;
+  color: blanchedalmond;
   padding: 5px;
+  animation: blink 0.2s linear;
 }
 
 .warning {
   background-color: rgba(0, 0, 0, 0.3);
+  color: blanchedalmond;
   border-radius: 10px 10px 0 0;
   padding: 15px 20px;
   position: absolute;
@@ -91,6 +113,7 @@ h3 {
   box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
+  animation: blink 0.2s linear;
 }
 
 .popup button {
@@ -108,4 +131,32 @@ h3 {
 .popup button:hover {
   opacity: 1;
   font-weight: 700;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 360px) {
+  header {
+    margin: 30px 5px;
+    width: 100vw;
+}
+
+  header h3 {
+    font-size: 25px
+  }
+
+  header p {
+    font-size: 13px;
+  }
+
 }
