@@ -114,10 +114,10 @@ const drawHangman = () => {
 };
 
 const showWarning = () => {
-  const aviso = document.querySelector(".warning");
-  aviso.classList.add("show");
+  const warning = document.querySelector(".warning");
+  warning.classList.add("show");
   setTimeout(() => {
-    aviso.classList.remove("show");
+    warning.classList.remove("show");
   }, 1500);
 };
 
