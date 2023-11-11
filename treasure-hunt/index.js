@@ -48,8 +48,9 @@ const getDistanceHint = function (distance) {
   }
 };
 
-const width = 400;
-const height = 450;
+const treasureMap = $("#map");
+const width = treasureMap.width();
+const height = treasureMap.height();
 let clicks = 0;
 
 const target = {
@@ -68,5 +69,3 @@ $("#map").click(function (event) {
     alert("You've found the treasure in " + clicks + " clicks!");
   }
 });
-
-console.log("aaaaa");
