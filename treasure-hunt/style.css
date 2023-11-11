@@ -14,7 +14,7 @@ body {
   width: 100vw;
   height: 100vh;
   font-family: "Roboto", sans-serif;
-  background-color: rgb(43, 39, 25);
+  background-color: rgb(39, 80, 80);
 }
 
 h1 {
@@ -22,7 +22,7 @@ h1 {
   width: 100vw;
   margin: 20px;
   font-family: "Satisfy", cursive;
-  color: blanchedalmond;
+  color: white;
   text-shadow: -1px 1px 3px black;
 }
 
@@ -33,7 +33,7 @@ h1 {
   align-items: center;
   text-align: center;
   margin: 10px auto;
-  color: blanchedalmond;
+  color: white;
   font-size: 20px;
 }
 
@@ -42,7 +42,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px dotted blanchedalmond;
+  border: 1px dotted white;
   border-radius: 10px;
   width: 120px;
   height: 60px;
