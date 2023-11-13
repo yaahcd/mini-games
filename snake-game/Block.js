@@ -19,7 +19,7 @@ class Block {
     circle(centerX, centerY, blockSize / 2, true);
   }
 
-  checkPosition(otherBlock){
+  checkPosition(otherBlock) {
     return this.col === otherBlock.col && this.row === otherBlock.row;
   }
 }

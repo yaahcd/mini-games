@@ -50,8 +50,6 @@ export const circle = function (x, y, radius, fillCircle) {
 const snake = new Snake();
 const apple = new Apple();
 
-
-
 const startGame = () => {
    intervalId = setInterval(function () {
     context.clearRect(0, 0, width, height);
@@ -69,7 +67,7 @@ const startGame = () => {
     40: "down",
   };
   
-  $("body").keydown(function (event) {
+  $("body").keydown((event) => {
     let newDirection = directions[event.keyCode];
     if (newDirection !== undefined) {
       snake.setDirection(newDirection);
@@ -77,6 +75,6 @@ const startGame = () => {
   });
 }
 
-$("body").keydown((event) => {
+$("#start-game").click((event) => {
   startGame();
 })
