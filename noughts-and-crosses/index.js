@@ -34,11 +34,16 @@ const makeMove = (e) => {
 
     if (checkGame) {
       gameOver(checkGame);
+      
     }
   }
 
   if (!checkTie()) {
     computerMove(e);
+    const checkGame = checkWinner(gameBoard, "computer");
+    if(checkGame){
+        gameOver(checkGame)
+    }
   } else {
     alert("tie");
   }
@@ -60,8 +65,8 @@ const checkWinner = (gameBoard, player) => {
 
 const gameOver = (gameWon) => {
   for (let index of possibleWins[gameWon.index]) {
-    gameWon.player === "human" ? alert("you won!") : alert("you lost!");
-    break;
+    gameWon.player === "human" ? alert("you won!") : alert("you lose!");
+    return;
   }
 
   for (let i = 0; i < tableData.length; i++) {
@@ -71,11 +76,11 @@ const gameOver = (gameWon) => {
 
 const computerMove = () => {
   const move = document.getElementById(
-    gameBoard.find((element) => typeof element != "string")
-  );
-  const computerChoice = userChoice === "x" ? o : "x";
+    minmax(gameBoard, "computer").index)
+  
+  const computerChoice = userChoice === "X" ? "O" : "X"
   move.innerHTML = computerChoice;
-  gameBoard[gameBoard.find((element) => typeof element != "string")] =
+  gameBoard[minmax(gameBoard, "computer").index] =
     "computer";
   return;
 };
@@ -93,6 +98,59 @@ const checkTie = () => {
   }
   return false;
 };
+
+const minmax = (newBoard, player) => {
+  const emptySquares = newBoard.filter(
+    (element) => typeof element === "number"
+  );
+
+  if (checkWinner(newBoard, player)) {
+    return { score: -10 };
+  } else if (checkWinner(newBoard, "computer")) {
+    return { score: 10 };
+  } else if (emptySquares.length === 0) {
+    return { score: 0 };
+  }
+
+  let moves = [];
+  for (let i = 0; i < emptySquares.length; i++) {
+    let move = {};
+    move.index = newBoard[emptySquares[i]];
+    newBoard[emptySquares[i]] = player;
+
+    if (player === "computer") {
+      let result = minmax(newBoard, "human");
+      move.score = result.score;
+    } else {
+      let result = minmax(newBoard, "computer");
+      move.score = result.score;
+    }
+
+    newBoard[emptySquares[i]] = move.index;
+
+    moves.push(move);
+  }
+
+  let bestMove;
+  if (player === "computer") {
+    let bestScore = -10000;
+    for (let i = 0; i < moves.length; i++) {
+      if (moves[i].score > bestScore) {
+        bestScore = moves[i].score;
+        bestMove = i;
+      }
+    }
+  } else {
+    let bestScore = 10000;
+    for (let i = 0; i < moves.length; i++) {
+      if (moves[i].score < bestScore) {
+        bestScore = moves[i].score;
+        bestMove = i;
+      }
+    }
+  }
+  return moves[bestMove];
+}
 
 const tableData = document.querySelectorAll(".table-data");
 for (let i = 0; i < tableData.length; i++) {
