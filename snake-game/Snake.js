@@ -49,7 +49,7 @@ class Snake {
     if (newHead.checkPosition(apple.position)) {
       this.score++;
       this.animationTime -= 5;
-      apple.move(widthInBlocks, heightInBlocks,this.segments);
+      apple.move(widthInBlocks, heightInBlocks, this.segments);
     } else {
       this.segments.pop();
     }

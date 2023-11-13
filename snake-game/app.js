@@ -51,7 +51,7 @@ const snake = new Snake();
 const apple = new Apple();
 
 const startGame = () => {
-   intervalId = setInterval(() => {
+  intervalId = setInterval(() => {
     context.clearRect(0, 0, width, height);
     drawScore(snake.score);
     snake.move(widthInBlocks, heightInBlocks, apple);
@@ -59,30 +59,30 @@ const startGame = () => {
     apple.draw(blockSize);
     drawBorder();
   }, snake.animationTime);
-  
+
   const directions = {
     37: "left",
     38: "up",
     39: "right",
     40: "down",
   };
-  
+
   $("body").keydown((event) => {
     let newDirection = directions[event.keyCode];
     if (newDirection !== undefined) {
       snake.setDirection(newDirection);
     }
   });
-}
+};
 
 const restartGame = () => {
   window.location.reload();
-}
+};
 
 $("#start-game").click(() => {
   startGame();
-})
+});
 
 $("#restart-game").click(() => {
   restartGame();
-})
+});
