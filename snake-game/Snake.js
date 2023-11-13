@@ -7,6 +7,7 @@ class Snake {
     this.direction = "right";
     this.nextDirection = "right";
     this.score = 0;
+    this.animationTime = 120
   }
 
   draw(blockSize) {
@@ -39,6 +40,7 @@ class Snake {
 
     if (newHead.checkPosition(apple.position)) {
       this.score++;
+      this.animationTime -= 5;
       apple.move(widthInBlocks, heightInBlocks);
     } else {
       this.segments.pop();

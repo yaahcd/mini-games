@@ -51,14 +51,14 @@ const snake = new Snake();
 const apple = new Apple();
 
 const startGame = () => {
-   intervalId = setInterval(function () {
+   intervalId = setInterval(() => {
     context.clearRect(0, 0, width, height);
     drawScore(snake.score);
     snake.move(widthInBlocks, heightInBlocks, apple);
     snake.draw(blockSize);
     apple.draw(blockSize);
     drawBorder();
-  }, 100);
+  }, snake.animationTime);
   
   const directions = {
     37: "left",
