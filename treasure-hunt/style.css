@@ -7,12 +7,6 @@
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-  width: 100vw;
-  height: 100vh;
   font-family: "Roboto", sans-serif;
   background-color: rgb(39, 80, 80);
 }
@@ -32,9 +26,18 @@ h1 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 10px auto;
+  margin: auto;
+  padding: 20px;
+  width: fit-content;
   color: white;
   font-size: 20px;
+  border-radius: 20px;
+  background-color: rgb(48, 55, 63);
+  animation: blink 0.3s linear;
+}
+
+.hint-container {
+  margin: 20px;
 }
 
 #distance {
@@ -49,6 +52,7 @@ h1 {
   margin: 10px;
   font-weight: 700;
   font-size: 18px;
+  animation: blink 0.3s linear;
 }
 
 #distance.red {
@@ -74,5 +78,17 @@ h1 {
   img {
     width: 350px;
     height: 400px;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
   }
 }

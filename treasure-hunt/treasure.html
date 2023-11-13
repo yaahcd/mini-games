@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="index.js" defer></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <title>Find the treasure</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1 id="heading">Click on the map to find the treasure!</h1>
-    <div class="map-container">
 
-        <img id="map" width="400" height="400" src="./treasuremap.png" />
-        <div>
-            <p>How close am I?</p>
-            <p  id="distance"></p>
-        </div>
+    <div class="map-container">
+      <img id="map" width="400" height="400" src="./treasuremap.png" />
+      <div class="hint-container">
+        <p>Clicks</p>
+        <p id="clicks"></p>
+        <p>How close am I?</p>
+        <p id="distance"></p>
+      </div>
     </div>
-</body>
+  </body>
 </html>
