@@ -17,7 +17,7 @@ class Snake {
       if (isEven) {
         this.segments[i].drawSquare("#0ff", blockSize);
       } else {
-        this.segments[i].drawSquare("Yellow", blockSize);
+        this.segments[i].drawSquare("#e85d04", blockSize);
       }
 
       isEven = !isEven;
@@ -49,7 +49,7 @@ class Snake {
     if (newHead.checkPosition(apple.position)) {
       this.score++;
       this.animationTime -= 5;
-      apple.move(widthInBlocks, heightInBlocks);
+      apple.move(widthInBlocks, heightInBlocks,this.segments);
     } else {
       this.segments.pop();
     }
