@@ -35,6 +35,10 @@ export const gameOver = () => {
   context.textAlign = "center";
   context.textBaseline = "middle";
   context.fillText("Game Over", width / 2, height / 2);
+
+  $("#start-game").css("display", "none");
+  $("#restart-game").css("display", "flex");
+
 };
 
 export const circle = function (x, y, radius, fillCircle) {
@@ -50,7 +54,11 @@ export const circle = function (x, y, radius, fillCircle) {
 const snake = new Snake();
 const apple = new Apple();
 
+console.log(intervalId);
+
 const startGame = () => {
+  $("#start-message").css("display", "none")
+
   intervalId = setInterval(() => {
     context.clearRect(0, 0, width, height);
     drawScore(snake.score);

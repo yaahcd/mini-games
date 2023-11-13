@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <title>Snake Game</title>
-</head>
-<body>
+  </head>
+  <body>
     <section class="game-container">
-        <canvas id="canvas" width="500" height="500"></canvas>
+      <canvas id="canvas" width="500" height="500"></canvas>
+      <p id="start-message">Press button to start</p>
     </section>
 
-    <button id="start-game">start</button>
-    <button id="restart-game">Play again</button>
+    <div class="button-container">
+      <button id="start-game">start</button>
+      <button id="restart-game">Play again</button>
+    </div>
     <script src="app.js" type="module"></script>
-</body>
+  </body>
 </html>
