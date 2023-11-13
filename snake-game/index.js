@@ -11,7 +11,7 @@ const heightInBlocks = height / blockSize;
 let score = 0;
 
 const drawBorder = () => {
-  context.fillStyle = "Gray";
+  context.fillStyle = "white";
   context.fillRect(0, 0, width, blockSize);
   context.fillRect(0, height - blockSize, width, blockSize);
   context.fillRect(0, 0, blockSize, height);
@@ -20,7 +20,7 @@ const drawBorder = () => {
 
 const drawScore = () => {
   context.font = "20px Courier";
-  context.fillStyle = "Black";
+  context.fillStyle = "white";
   context.textAlign = "left";
   context.textBaseline = "top";
   context.fillText("Score: " + score, blockSize, blockSize);
@@ -29,7 +29,7 @@ const drawScore = () => {
 const gameOver = () => {
   clearInterval(intervalId);
   context.font = "60px Courier";
-  context.fillStyle = "Black";
+  context.fillStyle = "white";
   context.textAlign = "center";
   context.textBaseline = "middle";
   context.fillText("Game Over", width / 2, height / 2);
@@ -76,7 +76,7 @@ const Snake = function () {
 
 Snake.prototype.draw = function () {
   for (let i = 0; i < this.segments.length; i++) {
-    this.segments[i].drawSquare("Blue");
+    this.segments[i].drawSquare("#0ff");
   }
 };
 
@@ -145,7 +145,7 @@ const Apple = function () {
 };
 
 Apple.prototype.draw = function () {
-  this.position.drawCircle("LimeGreen");
+  this.position.drawCircle("red");
 };
 
 Apple.prototype.move = function () {
