@@ -7,12 +7,20 @@ class Snake {
     this.direction = "right";
     this.nextDirection = "right";
     this.score = 0;
-    this.animationTime = 120
+    this.animationTime = 120;
   }
 
   draw(blockSize) {
+    let isEven = false;
+
     for (let i = 0; i < this.segments.length; i++) {
-      this.segments[i].drawSquare("#0ff", blockSize);
+      if (isEven) {
+        this.segments[i].drawSquare("#0ff", blockSize);
+      } else {
+        this.segments[i].drawSquare("Yellow", blockSize);
+      }
+
+      isEven = !isEven;
     }
   }
 
