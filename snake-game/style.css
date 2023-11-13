@@ -39,6 +39,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
+    margin: auto;
   }
 
   .button-container button {
@@ -77,3 +79,4 @@ body {
       opacity: 1;
     }
   }
+  
