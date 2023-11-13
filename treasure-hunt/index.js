@@ -64,7 +64,7 @@ $("#map").click(function (event) {
   let distance = getDistance(event, target);
   let distanceHint = getDistanceHint(distance);
   $("#distance").text(distanceHint);
-  console.log(distance);
+  $("#clicks").text(clicks);
   if (distance < 8) {
     alert("You've found the treasure in " + clicks + " clicks!");
   }
