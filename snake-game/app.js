@@ -75,6 +75,14 @@ const startGame = () => {
   });
 }
 
-$("#start-game").click((event) => {
+const restartGame = () => {
+  window.location.reload();
+}
+
+$("#start-game").click(() => {
   startGame();
+})
+
+$("#restart-game").click(() => {
+  restartGame();
 })
