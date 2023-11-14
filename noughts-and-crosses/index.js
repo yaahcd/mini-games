@@ -137,7 +137,9 @@ const minmax = (newBoard, player) => {
     moves.push(move);
   }
 
+  //starts to check for the best move in the moves array
   let bestMove;
+  //chooses the first move with the hightest score on computer's turn 
   if (player === "computer") {
     let bestScore = -10000;
     for (let i = 0; i < moves.length; i++) {
@@ -147,6 +149,7 @@ const minmax = (newBoard, player) => {
       }
     }
   } else {
+     //chooses the first move with the hightest score on humans's turn
     let bestScore = 10000;
     for (let i = 0; i < moves.length; i++) {
       if (moves[i].score < bestScore) {
@@ -155,6 +158,7 @@ const minmax = (newBoard, player) => {
       }
     }
   }
+  //returns chosen move
   return moves[bestMove];
 };
 
