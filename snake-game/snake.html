@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script src="app.js" type="module"></script>
     <link rel="stylesheet" href="style.css" />
     <title>Snake Game</title>
   </head>
@@ -13,10 +14,17 @@
       <p id="start-message">Press button to start</p>
     </section>
 
-    <div class="button-container">
+    <section class="button-container">
       <button id="start-game">start</button>
       <button id="restart-game">Play again</button>
-    </div>
-    <script src="app.js" type="module"></script>
+    </section>
+
+    <section id="direction-btn-container">
+      <button class="up">&#8593;</button>
+      <button class="left">&#8592;</button>
+      <button class="down">&#8595;</button>
+      <button class="right">&#8594;</button>
+    </section>
+    
   </body>
 </html>

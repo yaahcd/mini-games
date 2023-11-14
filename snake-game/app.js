@@ -54,8 +54,6 @@ export const circle = function (x, y, radius, fillCircle) {
 const snake = new Snake();
 const apple = new Apple();
 
-console.log(intervalId);
-
 const startGame = () => {
   $("#start-message").css("display", "none")
 
@@ -94,3 +92,15 @@ $("#start-game").click(() => {
 $("#restart-game").click(() => {
   restartGame();
 });
+
+const directionButtons = $("#direction-btn-container")
+if(window.innerWidth > 545) {
+  directionButtons.css("display", "none")
+}
+
+$(".up, .left, .down, .right").click((event) => {
+  let newDirection = event.target.className;
+  if (newDirection !== undefined) {
+    snake.setDirection(newDirection);
+  }
+})
