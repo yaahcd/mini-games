@@ -5,12 +5,13 @@ const canvas = document.getElementById("canvas");
 export const context = canvas.getContext("2d");
 
 
-let width
+let width 
 let height 
+let widthInBlocks
+let heightInBlocks
 
 const blockSize = 10;
-const widthInBlocks = width / blockSize;
-const heightInBlocks = height / blockSize;
+console.log(widthInBlocks, heightInBlocks);
 let intervalId;
 
 const drawBorder = () => {
@@ -102,11 +103,15 @@ if(window.innerWidth > 545) {
   context.canvas.height = 500
   width = canvas.width
   height = canvas.height
+  widthInBlocks = width / blockSize;
+  heightInBlocks = height / blockSize;
 } else {
   context.canvas.width = 300
   context.canvas.height = 300
   width = canvas.width
   height = canvas.height
+  widthInBlocks = width / blockSize;
+  heightInBlocks = height / blockSize;
 }
 
 $(".up, .left, .down, .right").click((event) => {
