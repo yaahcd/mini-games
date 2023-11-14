@@ -39,7 +39,7 @@ const fruits = [
 const secretWord = fruits[Math.floor(Math.random() * fruits.length)];
 
 document.addEventListener("keydown", (e) => {
-  document.getElementById("game-start").focus()
+  
   const keyCode = e.keyCode;
   if (isLetter(keyCode)) {
     const startGameMessage = document.getElementById("game-start");
@@ -130,4 +130,5 @@ const restartGame = () => {
   window.location.reload();
 };
 
+document.getElementById("game-start").focus()
 document.getElementById("play-again").addEventListener("click", restartGame);
