@@ -118,3 +118,9 @@ body {
     opacity: 1;
   }
 }
+
+@media (max-width: 545px){
+  .game-container p {
+    font-size: 20px;
+  }
+}

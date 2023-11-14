@@ -94,8 +94,11 @@ $("#restart-game").click(() => {
 });
 
 const directionButtons = $("#direction-btn-container")
+
 if(window.innerWidth > 545) {
   directionButtons.css("display", "none")
+  context.canvas.width = 500
+  context.canvas.height = 500
 }
 
 $(".up, .left, .down, .right").click((event) => {
