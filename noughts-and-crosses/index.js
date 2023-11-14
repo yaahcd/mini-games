@@ -45,7 +45,8 @@ const makeMove = (e) => {
       gameOver(checkGame);
     }
   } else {
-    alert("tie");
+    document.querySelector("#message").innerHTML = "Tie! 👔";
+    document.querySelector(".popup-container").style.display = "flex";
   }
 };
 
@@ -64,14 +65,20 @@ const checkWinner = (gameBoard, player) => {
 };
 
 const gameOver = (gameWon) => {
+  let message = ""
   for (let index of possibleWins[gameWon.index]) {
-    gameWon.player === "human" ? alert("you won!") : alert("you lose!");
-    return;
+    gameWon.player === "human" ? message = "You won! 🎉" : message = "You lose! 😕"
   }
-
+  
   for (let i = 0; i < tableData.length; i++) {
     tableData[i].removeEventListener("click", makeMove);
   }
+
+  if (message) {
+    document.querySelector("#message").innerHTML = message;
+    document.querySelector(".popup-container").style.display = "flex";
+  }
+ 
 };
 
 const computerMove = () => {
@@ -162,6 +169,13 @@ const minmax = (newBoard, player) => {
   //returns chosen move
   return moves[bestMove];
 };
+
+const restartGame = () => {
+  window.location.reload();
+};
+
+document.getElementById("play-again").addEventListener("click", restartGame);
+
 
 const tableData = document.querySelectorAll(".table-data");
 for (let i = 0; i < tableData.length; i++) {
