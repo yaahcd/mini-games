@@ -4,8 +4,9 @@ import Apple from "./Apple.js";
 const canvas = document.getElementById("canvas");
 export const context = canvas.getContext("2d");
 
-const width = canvas.width;
-const height = canvas.height;
+
+let width
+let height 
 
 const blockSize = 10;
 const widthInBlocks = width / blockSize;
@@ -30,7 +31,7 @@ const drawScore = (score) => {
 
 export const gameOver = () => {
   clearInterval(intervalId);
-  context.font = "60px Courier";
+  context.font = "50px Courier";
   context.fillStyle = "white";
   context.textAlign = "center";
   context.textBaseline = "middle";
@@ -99,6 +100,13 @@ if(window.innerWidth > 545) {
   directionButtons.css("display", "none")
   context.canvas.width = 500
   context.canvas.height = 500
+  width = canvas.width
+  height = canvas.height
+} else {
+  context.canvas.width = 300
+  context.canvas.height = 300
+  width = canvas.width
+  height = canvas.height
 }
 
 $(".up, .left, .down, .right").click((event) => {
