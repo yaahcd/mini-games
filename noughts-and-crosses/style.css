@@ -1,31 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Pixelify+Sans&family=Roboto:wght@300;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  background: rgb(39, 80, 80);
+  background: linear-gradient(
+    90deg,
+    rgb(48, 55, 63) 8%,
+    rgb(39, 80, 80) 50%,
+    rgb(48, 55, 63) 92%
+  );
+}
+
+h1 {
+  margin: 50px auto;
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 40px;
+  color: white;
+  text-shadow: -1px 1px 3px black;
+}
+
+p {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 10px;
+  color: white;
+  text-shadow: -1px 1px 3px black;
+}
+
+.btn-container {
+  margin-bottom: 30px;
+}
+
+.btn-container button {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  font-family: "Pixelify Sans", cursive;
+  font-size: 40px;
+  font-weight: bold;
+  color: #0ff;
+  text-shadow: 2px 2px 1px black;
+  cursor: pointer;
+  transition: .4s ease;
+}
+
+.btn-container button:hover {
+  text-shadow: 1px 1px 10px #0ff;
+  color: black;
+}
+
+
 table {
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 tr {
-    cursor: pointer;
-    text-align: center;
-    font-size: 50px;    
-  }
+  cursor: pointer;
+  text-align: center;
+  font-size: 50px;
+}
 
-  td {
-    height: 166px;
-    width: 166px;
-    border: 3px solid black;
-  }
+td {
+  height: 166px;
+  width: 166px;
+  border: 3px solid black;
+}
 
-  table tr:first-child td {
-    border-top: 0;
-  }
+table tr:first-child td {
+  border-top: 0;
+}
 
-  table tr:last-child td {
-    border-bottom: 0;
-  }
+table tr:last-child td {
+  border-bottom: 0;
+}
 
-  table tr td:first-child {
-    border-left: 0;
-  }
+table tr td:first-child {
+  border-left: 0;
+}
 
-  table tr td:last-child {
-    border-right: 0;
-  }
+table tr td:last-child {
+  border-right: 0;
+}

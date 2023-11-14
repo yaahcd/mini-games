@@ -99,6 +99,7 @@ const checkTie = () => {
 
 const minmax = (newBoard, player) => {
 //source: https://www.freecodecamp.org/news/how-to-make-your-tic-tac-toe-game-unbeatable-by-using-the-minimax-algorithm-9d690bad4b37
+//https://www.youtube.com/watch?v=SLgZhpDsrfc
 
   //gets available spots on the board
   const emptySquares = newBoard.filter(
