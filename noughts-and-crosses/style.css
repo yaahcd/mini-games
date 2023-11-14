@@ -18,6 +18,7 @@ body {
     rgb(39, 80, 80) 50%,
     rgb(48, 55, 63) 92%
   );
+  animation: blink .3s;
 }
 
 h1 {
@@ -75,6 +76,7 @@ td {
   border: 6px solid white;
   color: #0ff;
   text-shadow: 2px 2px 1px black;
+  animation: blink .5s;
 }
 
 table tr:first-child td {
@@ -92,3 +94,42 @@ table tr td:first-child {
 table tr td:last-child {
   border-right: 0;
 }
+
+.popup {
+  background-color: #0ff;
+  border-radius: 10px;
+  box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  animation: blink 0.2s linear;
+}
+
+.popup button {
+  cursor: pointer;
+  background-color: #fff;
+  border: 0;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+  transform: 0.4s;
+  opacity: 0.9;
+}
+
+.popup button:hover {
+  opacity: 1;
+  font-weight: 700;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
