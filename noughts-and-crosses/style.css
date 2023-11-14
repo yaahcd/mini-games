@@ -37,7 +37,7 @@ p {
 }
 
 .btn-container {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .btn-container button {
@@ -58,7 +58,6 @@ p {
   color: black;
 }
 
-
 table {
   border-collapse: collapse;
 }
@@ -66,13 +65,16 @@ table {
 tr {
   cursor: pointer;
   text-align: center;
-  font-size: 50px;
 }
 
 td {
-  height: 166px;
-  width: 166px;
-  border: 3px solid black;
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 60px;
+  height: 150px;
+  width: 150px;
+  border: 6px solid white;
+  color: #0ff;
+  text-shadow: 2px 2px 1px black;
 }
 
 table tr:first-child td {
