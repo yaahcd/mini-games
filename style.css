@@ -87,3 +87,9 @@ h1 {
     border-radius: 100% 56% 56% 100% / 100% 100% 56% 56%;
   }
 }
+
+@media (max-width: 850px) {
+  .games-container a {
+    width: 85vw;
+  }
+}
