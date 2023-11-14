@@ -96,6 +96,10 @@ table tr td:last-child {
   border-right: 0;
 }
 
+#game-container{
+  padding: 10px;
+}
+
 .popup-container {
   display: none;
   background-color: rgba(0, 0, 0, 0.849);
@@ -148,6 +152,15 @@ table tr td:last-child {
 }
 
 @media (max-width: 550px) {
+body {
+  background: linear-gradient(
+    90deg,
+    rgb(48, 55, 63) 2%,
+    rgb(39, 80, 80) 50%,
+    rgb(48, 55, 63) 98%
+  );
+}
+
   h1 {
     font-size: 30px;
   }
