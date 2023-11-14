@@ -1,4 +1,5 @@
 let userChoice;
+let gameBoard;
 const possibleWins = [
   [0, 1, 2],
   [3, 4, 5],
@@ -34,15 +35,14 @@ const makeMove = (e) => {
 
     if (checkGame) {
       gameOver(checkGame);
-      
     }
   }
 
   if (!checkTie()) {
     computerMove(e);
     const checkGame = checkWinner(gameBoard, "computer");
-    if(checkGame){
-        gameOver(checkGame)
+    if (checkGame) {
+      gameOver(checkGame);
     }
   } else {
     alert("tie");
@@ -75,13 +75,11 @@ const gameOver = (gameWon) => {
 };
 
 const computerMove = () => {
-  const move = document.getElementById(
-    minmax(gameBoard, "computer").index)
-  
-  const computerChoice = userChoice === "X" ? "O" : "X"
+  const move = document.getElementById(minmax(gameBoard, "computer").index);
+
+  const computerChoice = userChoice === "X" ? "O" : "X";
   move.innerHTML = computerChoice;
-  gameBoard[minmax(gameBoard, "computer").index] =
-    "computer";
+  gameBoard[minmax(gameBoard, "computer").index] = "computer";
   return;
 };
 
@@ -100,11 +98,15 @@ const checkTie = () => {
 };
 
 const minmax = (newBoard, player) => {
+//source: https://www.freecodecamp.org/news/how-to-make-your-tic-tac-toe-game-unbeatable-by-using-the-minimax-algorithm-9d690bad4b37
+
+  //gets available spots on the board
   const emptySquares = newBoard.filter(
     (element) => typeof element === "number"
   );
 
-  if (checkWinner(newBoard, player)) {
+  //checks for terminal states
+  if (checkWinner(newBoard, "human")) {
     return { score: -10 };
   } else if (checkWinner(newBoard, "computer")) {
     return { score: 10 };
@@ -112,12 +114,14 @@ const minmax = (newBoard, player) => {
     return { score: 0 };
   }
 
+  //get scores for each available spot
   let moves = [];
   for (let i = 0; i < emptySquares.length; i++) {
     let move = {};
     move.index = newBoard[emptySquares[i]];
     newBoard[emptySquares[i]] = player;
 
+    //collect the score resulted from calling minimax on the opponent of the current player
     if (player === "computer") {
       let result = minmax(newBoard, "human");
       move.score = result.score;
@@ -126,8 +130,10 @@ const minmax = (newBoard, player) => {
       move.score = result.score;
     }
 
+    //reset the spot to empty
     newBoard[emptySquares[i]] = move.index;
 
+    //push move obj to array
     moves.push(move);
   }
 
@@ -150,7 +156,7 @@ const minmax = (newBoard, player) => {
     }
   }
   return moves[bestMove];
-}
+};
 
 const tableData = document.querySelectorAll(".table-data");
 for (let i = 0; i < tableData.length; i++) {
