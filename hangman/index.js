@@ -130,5 +130,9 @@ const restartGame = () => {
   window.location.reload();
 };
 
-document.getElementById("game-start").focus()
+const focusMobile = () => {
+  document.getElementById("game-start").focus()
+}
+
+focusMobile()
 document.getElementById("play-again").addEventListener("click", restartGame);
