@@ -19,6 +19,13 @@ const startGame = () => {
 
 const setUserPreference = (e) => {
   userChoice = e.target.innerText;
+
+  const buttons = document.querySelectorAll("#option")
+  buttons.forEach((button) => {
+  button.disabled = true
+  button.style.opacity = "0.5"
+}
+  )
 };
 
 const makeMove = (e) => {
