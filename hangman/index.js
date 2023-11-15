@@ -1,5 +1,6 @@
 const wrongGuess = [];
 const rightGuess = [];
+
 const fruits = [
   "acai",
   "apple",
@@ -132,5 +133,9 @@ const restartGame = () => {
   window.location.reload();
 };
 
+const openKeyboard = () => {
+  this.focus()
+}
 
 document.getElementById("play-again").addEventListener("click", restartGame);
+document.getElementById("keyboard").addEventListener("click", openKeyboard)
