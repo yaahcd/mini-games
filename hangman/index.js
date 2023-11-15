@@ -133,11 +133,6 @@ const restartGame = () => {
   window.location.reload();
 };
 
-const openKeyboard = () => {
-  console.log('A');
-  input.focus()
-}
 
-const input = document.getElementById("keyboard-focus")
+
 document.getElementById("play-again").addEventListener("click", restartGame);
-document.getElementById("keyboard").addEventListener("click", openKeyboard)
