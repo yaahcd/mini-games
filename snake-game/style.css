@@ -57,7 +57,9 @@ body {
   transition: 0.2s;
 }
 
-.button-container button:hover {
+.button-container button:hover, .up:hover, .left:hover,
+.right:hover,
+.down:hover {
   box-shadow: 1px 1px 5px 5px #0ff;
   opacity: 0.9;
   color: black;

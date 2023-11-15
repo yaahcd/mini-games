@@ -8,14 +8,14 @@
     <title>Hangman</title>
   </head>
   <body>
-    <div class="contents-box">
+    <section class="contents-box">
       <header>
         <h3>Guess the fruit!</h3>
         <p id="game-start">Press a letter to start guessing</p>
       </header>
       
       
-      <div class="game-container">
+      <section class="game-container">
         <div class="hang-container">
           <svg height="250" width="200" class="hang">
             <line x1="60" y1="20" x2="140" y2="20" />
@@ -37,19 +37,18 @@
         </div>
 
         <div class="wrongGuess-container"></div>
-      </div>
+      </section>
       <div class="secretWord-container"></div>
-      
-    </div>
+      <div id="keyboard"></div>
+    </section>
 
     <div class="warning">You've already guessed that letter!</div>
 
-    <div class="popup-container">
+    <section class="popup-container">
       <div class="popup">
         <h2 id="warning"></h2>
         <button id="play-again">Play again</button>
       </div>
-
-    </div>
+    </section>
   </body>
 </html>

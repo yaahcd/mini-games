@@ -1,6 +1,33 @@
 const wrongGuess = [];
 const rightGuess = [];
-
+const alphabet = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
 const fruits = [
   "acai",
   "apple",
@@ -39,15 +66,18 @@ const fruits = [
 
 const secretWord = fruits[Math.floor(Math.random() * fruits.length)];
 
-document.addEventListener("keydown", (e) => {
+const startGame = (e) => {
+  console.log(e.key);
 
-  e.key.toLowerCase()
-  const keyCode = e.keyCode;
-  
+  e.key && e.key.toLowerCase();
+  const keyCode = e.keyCode || e.target.innerHTML.charCodeAt(0);
+
   if (isLetter(keyCode)) {
     const startGameMessage = document.getElementById("game-start");
     startGameMessage.style.display = "none";
-    const letter = e.key.toLowerCase();
+    const letter = e.key
+      ? e.key.toLowerCase()
+      : e.target.innerHTML.toLowerCase();
 
     if (wrongGuess.includes(letter)) {
       showWarning();
@@ -60,7 +90,7 @@ document.addEventListener("keydown", (e) => {
     }
     updateGame();
   }
-});
+};
 
 const updateGame = () => {
   showWrongGuesses();
@@ -133,6 +163,15 @@ const restartGame = () => {
   window.location.reload();
 };
 
-
+document.addEventListener("keydown", startGame);
 
 document.getElementById("play-again").addEventListener("click", restartGame);
+const letters = document.getElementById("keyboard");
+for (let i = 0; i < alphabet.length; i++) {
+  letters.innerHTML += ` 
+  <p class="letter">${alphabet[i]}</p>
+  `;
+}
+
+const letter = document.querySelectorAll(".letter");
+letter.forEach((letter) => letter.addEventListener("click", startGame));
