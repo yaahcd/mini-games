@@ -99,12 +99,12 @@ header p {
   border-radius: 10px 10px 0 0;
   padding: 15px 20px;
   position: absolute;
-  bottom: -55px;
+  bottom: -75px;
   transition: transform 0.3s ease-in-out;
 }
 
 .warning.show {
-  transform: translateY(-50px);
+  transform: translateY(-70px);
 }
 
 .popup-container {
@@ -146,11 +146,12 @@ header p {
 }
 
 #keyboard {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin: 10px
 }
 
 #keyboard p {
@@ -198,4 +199,11 @@ header p {
   header p {
     font-size: 13px;
   }
+
+}
+
+@media (max-width: 1024px) {
+ #keyboard {
+  display: flex;
+ }
 }
