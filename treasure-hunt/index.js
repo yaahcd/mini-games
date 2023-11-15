@@ -66,6 +66,11 @@ $("#map").click(function (event) {
   $("#distance").text(distanceHint);
   $("#clicks").text(clicks);
   if (distance < 8) {
-    alert("You've found the treasure in " + clicks + " clicks!");
+    document.querySelector("#message").innerHTML = `You've found the treasure in ${clicks} clicks!`
+    document.querySelector(".popup-container").style.display = "flex";
   }
 });
+
+$("#play-again").click(() => {
+  window.location.reload();
+})
