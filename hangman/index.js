@@ -39,12 +39,14 @@ const fruits = [
 const secretWord = fruits[Math.floor(Math.random() * fruits.length)];
 
 document.addEventListener("keydown", (e) => {
-  
+
+  e.key.toLowerCase()
   const keyCode = e.keyCode;
+  
   if (isLetter(keyCode)) {
     const startGameMessage = document.getElementById("game-start");
     startGameMessage.style.display = "none";
-    const letter = e.key;
+    const letter = e.key.toLowerCase();
 
     if (wrongGuess.includes(letter)) {
       showWarning();
