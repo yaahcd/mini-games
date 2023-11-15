@@ -98,9 +98,15 @@ $("#restart-game").click(() => {
 const directionButtons = $("#direction-btn-container")
 
 if(window.innerWidth > 545) {
-  directionButtons.css("display", "none")
   context.canvas.width = 500
   context.canvas.height = 500
+  width = canvas.width
+  height = canvas.height
+  widthInBlocks = width / blockSize;
+  heightInBlocks = height / blockSize;
+} else if (window.innerWidth > 410){
+  context.canvas.width = 400
+  context.canvas.height = 400
   width = canvas.width
   height = canvas.height
   widthInBlocks = width / blockSize;
