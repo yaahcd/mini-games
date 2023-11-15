@@ -134,6 +134,7 @@ const restartGame = () => {
 };
 
 const openKeyboard = () => {
+  console.log('A');
   input.focus()
 }
 
