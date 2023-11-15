@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: auto;
+  margin: auto 15px;
   border-radius: 20px;
   background-color: rgb(48, 55, 63);
   padding: 10px;
@@ -36,6 +36,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   color: white;
   letter-spacing: 1px;
   margin: 30px;
@@ -99,12 +100,12 @@ header p {
   border-radius: 10px 10px 0 0;
   padding: 15px 20px;
   position: absolute;
-  bottom: -75px;
+  bottom: -85px;
   transition: transform 0.3s ease-in-out;
 }
 
 .warning.show {
-  transform: translateY(-70px);
+  transform: translateY(-80px);
 }
 
 .popup-container {
@@ -187,6 +188,7 @@ header p {
 }
 
 @media (max-width: 360px) {
+
   header {
     margin: 30px 5px;
     width: 100vw;
@@ -199,6 +201,11 @@ header p {
   header p {
     font-size: 13px;
   }
+
+  .warning.show {
+    transform: translateY(-50px);
+  }
+  
 
 }
 
